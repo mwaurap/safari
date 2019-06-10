@@ -1,0 +1,1033 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Inspection Booking</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <!--浏览器渲染设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <!--各平台个性化视觉设置(自行补充)-->
+    <link rel="shortcut icon" type="image/x-icon" href="/res_csp/brower/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="/res_csp/brower/apple-touch-icon.png">
+    <link rel="icon" sizes="192x192" href="/res_csp/brower/apple-touch-icon.png">
+    <!--移动端特性设置-->
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="My WebAPP">
+    <!--项目全局CSS资源引用-->
+    <link rel="stylesheet" href="/lib_csp/rui/rui.css" />
+    <link rel="stylesheet" href="/res_csp/app.css" />
+    <!--项目全局JS资源引用-->
+    <!--[if lte IE 9]> 
+<script src="/lib/iefix/prefix.js"></script>
+<![endif]-->
+    <script src="/lib_csp/require/require.js"></script>
+    <script src="/res_csp/config.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <!-- --------------------------------页面模板公用头部结束-------------------------------- -->
+    <link rel="stylesheet" href="/res_csp/user/user.css" />
+
+    <!-- HTML Base Option -->
+    <meta charset="utf-8">
+
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- Desktop Brower Option -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <!-- Mobile Brower Option -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="">
+    <!-- Ã¥ÂÂ¨Ã¥Â±ÂÃ¨ÂµÂÃ¦ÂºÂÃ¥ÂÂ Ã¨Â½Â½ -->
+    <!-- rui : Ã¥ÂÂºÃ§Â¡ÂÃ¦Â Â·Ã¥Â¼ÂÃ¥ÂºÂ + Ã©ÂÂÃ¦ÂÂjQueryÃ¥ÂÂÃ¥Â¸Â¸Ã§ÂÂ¨Ã¥ÂÂ½Ã¦ÂÂ° [Ã¥Â¿ÂÃ¥Â¤ÂÃ¥ÂÂºÃ§Â¡ÂÃ¥ÂºÂ] -->
+    <script src="/lib_csp/require/require.js"></script>
+    <script src="/res_csp/config.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/themes/default/easyui.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/lib_csp/datepicker/css/jquery-ui.css">
+    <script src="/lib_csp/jquery/jquery-1.7.0.min.js"></script>
+    <script type="text/javascript" src="/lib_csp/datepicker/js/jquery-ui-datepicker.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/lib_csp/rui/rui.css">
+    <script type="text/javascript" src="/lib_csp/rui/rui.js"></script>
+    <style type="text/css">
+        select {}
+
+        th {
+            width: auto
+        }
+
+        .stats_page .result th {
+            width: auto;
+        }
+
+        .stats_page .result th,
+        .stats_page .result td {
+            /*border:0*/
+        }
+
+        .stats_page .result table input {
+            width: 150px;
+            padding: 4px 0;
+        }
+
+        .stats_page .result table select {
+            width: 150px;
+        }
+
+        .txt {
+            width: 120px
+        }
+
+        .table_header {
+            background: #6d6d6d;
+            color: #fff;
+            line-height: 20px;
+            margin: 10px;
+        }
+
+        .able-first {
+            cursor: pointer;
+            border: 1px solid black;
+            width: 6px;
+            height: 30px;
+            background-color: green;
+            display: inline;
+            float: left
+        }
+
+        .disable-first {
+            border: 1px solid black;
+            width: 6px;
+            height: 30px;
+            background-color: red;
+            display: inline;
+            float: left
+        }
+
+        .myborder {
+            cursor: pointer;
+            border: 1px solid black;
+            border-top-width: 0;
+            border-bottom-width: 0;
+            border-right-width: 0;
+            border-left-width: 1;
+            width: 0px;
+            height: 32px;
+            background-color: green;
+            display: inline;
+            float: left;
+            margin-top: 5px;
+        }
+
+        .able0 {
+            cursor: pointer;
+            border: 1px solid black;
+            border-left-width: 0;
+            width: 6px;
+            height: 30px;
+            background-color: green;
+            display: inline;
+            float: left;
+            margin-top: 5px;
+        }
+
+        .disable0 {
+            border: 1px solid black;
+            border-left-width: 0;
+            width: 6px;
+            height: 30px;
+            background-color: red;
+            display: inline;
+            float: left;
+            margin-top: 5px;
+        }
+
+        .hour-first {
+            width: 44px;
+            display: inline;
+            float: left
+        }
+
+        .hour {
+            width: 82px;
+            display: inline;
+            float: left
+        }
+    </style>
+
+
+
+
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            var str = "";
+            if ('null' != 'null' && 'null' != '') {
+                str = "Previous login time:" + 'null' + ".";
+
+            }
+            if ('' == 'true') {
+                str = str + " \n Please modify your password immediately for the safety of your account.";
+
+            }
+            if (str != "") {
+                alert(str);
+            }
+        }
+    </script>
+    <style type="text/css">
+        .top_links .hotline {
+            position: relative;
+            width: 400px;
+            height: 35px;
+        }
+
+        .top_links .hotline.hover {}
+
+        .top_links .hotline ul {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 99999;
+            width: 100%;
+            height: 35px;
+            overflow: hidden;
+            background: #f2f2f2;
+        }
+
+        .top_links .hotline ul li {
+            height: 35px;
+            line-height: 35px;
+            border-bottom: 1px solid #ddd;
+            display: block;
+            padding-left: 10px;
+        }
+
+        .top_links .hotline.hover ul {
+            height: 105px;
+            background: #f2f2f2;
+        }
+    </style>
+
+    <div class="top_links">
+        <div class="w1000">
+            <div class="fl">
+                <a href="javascript:" class="lang">
+                    <img src="/res_csp/lang_ky.png" />
+                </a>
+                <div class="hotline">
+                    <!-- Help Center: <span>0709 932 000(Safaricom), 020 6632
+					000(Telkom)</span> -->
+                    <ul>
+                        <li>NTSA Help Desk: 0709 932 300 (safaricom), 020 6632 300 (Telkom)</li>
+                        <li>Ecitizen: 0709 932 300(safaricom), 020 6632 300 (Telkom)</li>
+                        <li>Office Line: 0709 932 000(safaricom), 020 6632 000(Telkom)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fr">
+
+                Welcome
+                <a href="/portal/user/userCenter/myInfo.htm" class="hl">
+                    GEORGE MUNGAI GACHAI
+                </a> |
+                <a href="/portal/user/userCenter/userLogout.htm" class="hl">Sign Out</a>
+                <a href="/portal/system/protalFeedback/toFeedback.htm">
+                    <i class="iconfont">&#360</i> User Feedback</a> |
+                <a href="/portal/csp/subscribeSMS/subscribeSMS.htm" class="hl">Subscribe SMS</a>
+
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="w1000">
+            <div class="logo">
+                <a href="javascript:">
+                    <img src="/res_csp/logo.png" />
+                </a>
+            </div>
+            <div class="search">
+                <form id="formTop" action="/portal/system/news/getProtalNewsList.htm" method="post" onsubmit="onsearch()">
+                    <div class="form" style="float: right">
+                        <input type="text" name="newsDto.title" id="key" value="" style="height:15px;" placeholder="Input your search keywords..."
+                            class="kwd" />
+                        <input type="submit" name="" id="keybtn" value="Search" class="sbm" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+        <div class="w1000">
+            <ul>
+
+
+                <li>
+                    <a href="/portal/mvr/vehicle/list.htm">Vehicle Registration
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/portal/user/mvi/bookinglist.htm">Vehicle Inspection</a>
+                </li>
+
+                <li>
+                    <a href="/portal/dtl/redo/myDl/view.htm">Driving Licence</a>
+                </li>
+
+
+                <li>
+
+                    <a href="/portal/onlineSearch.htm" onclick="onemnu(this)">Online Search</a>
+
+                </li>
+                <li>
+
+                    <a href="/portal/system/notices/getProtalNoticesListLogined.htm?noticesDto.category=mvr&act=1" onclick="onemnu(this)">Notice & News</a>
+
+                </li>
+
+                <li>
+                    <a href="/portal/system/protalFeedback/getMyFeedbackList.htm">My Feedback
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function nninquery(data, flag) {
+            $('[name="n&n12"]').attr("class", "");
+            $(data).attr("class", "act");
+            if (flag == 'news') {
+                $("#key").attr("name", "newsDto.title");
+                $("#formTop").attr("action",
+                    "/portal/system/news/getProtalNewsList.htm");
+                $("#topSearchFlag").val("news");
+            } else {
+                $("#key").attr("name", "noticesDto.title");
+                $("#formTop").attr("action",
+                    "/portal/system/notices/getProtalNoticesList.htm");
+                $("#topSearchFlag").val("notice");
+            }
+
+        }
+
+        function onRegisterChoose() {
+            if (confirm("Kindly Subscribe First.")) {
+                window.location = "/portal/csp/subscribeSMS/subscribeSMS.htm";
+            }
+        }
+
+        function onsearch() {
+            if (document.getElementById('key').value == '') {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        $('.top_links .hotline ul').hover(
+            function () {
+                $(this).parent().addClass('hover');
+            },
+            function () {
+                $(this).parent().removeClass('hover');
+            }
+        )
+    </script>
+
+    <div class="main w1000 userCenter" style="min-height:350px;">
+        <div class="pagePath">
+            Current Position:
+            <a href="javascript:">Home Page</a> >
+            <span>Vehicle Inspection</span>
+        </div>
+
+        <div class="uNav">
+            <a href="#" class="userHome act">
+                <i class="iconfont">&#336</i>Vehicle Inspection</a>
+            <dl>
+                <dt>
+                    <i class="iconfont">&#396</i>Inspection</dt>
+                <dd>
+                    <ul>
+                        <li>
+                            <a class="" onMouseUp="this.className='selected'" href="/portal/user/mvi/bookinglist.htm">
+                                <i class="iconfont">&#370</i>My Booking List</a>
+                        </li>
+                        <li>
+                            <a class="" onMouseUp="this.className='selected'" onclick="javascript:return true">
+                                <i class="iconfont">&#370</i>Create New Booking</a>
+                        </li>
+                        <li style="margin-left:12px;">
+                            <a onMouseUp="this.className='selected'" href="/portal/user/mvi/newcarBooking.htm">
+                                <i class="iconfont">&#372</i>New Car Booking</a>
+                        </li>
+                        <li style="margin-left:12px;">
+                            <a onMouseUp="this.className='selected'" href="/portal/user/mvi/annualBooking.htm">
+                                <i class="iconfont">&#372</i>Annual Booking</a>
+                        </li>
+                        <li style="margin-left:12px;">
+                            <a onMouseUp="this.className='selected'" href="/portal/user/mvi/changeBooking.htm">
+                                <i class="iconfont">&#372</i>Change Particular </a>
+                        </li>
+
+                        <li>
+                            <a onMouseUp="this.className='selected'" href="/portal/user/mvi/compliance/list.htm">
+                                <i class="iconfont">&#370</i>Compliance Inspection </a>
+                        </li>
+                        <li>
+                            <a onMouseUp="this.className='selected'" href="/portal/user/mvi/reportlist.htm">
+                                <i class="iconfont">&#370</i>Inspection Report</a>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+
+        <div class="uPage">
+
+
+            <div class="pagecont">
+                <div class="stats_page">
+
+                    <h2>
+                        <i class="iconfont">&#470</i>Annual Inspection
+                    </h2>
+
+
+                    <h5 align="center" style="background: #6d6d6d; color: #fff;line-height: 36px;margin: 10 0 0 0;">Vehicle List</h5>
+                    <table id="bookingVehicleList">
+
+                        <tr>
+                            <th style="width: 25px" nowrap="nowrap">Num</th>
+                            <th style="width: 80px; text-align: center;" nowrap="nowrap">Registration No.</th>
+                            <th style="width: 50px; text-align: center;" nowrap="nowrap">Make</th>
+                            <th style="width: 80px; text-align: center;" nowrap="nowrap">Chassis No.</th>
+                            <th style="width: 80px; text-align: center;" nowrap="nowrap">Engine No.</th>
+                            <th style="width: 80px; text-align: center;" nowrap="nowrap">Color</th>
+                        </tr>
+
+                        <tr align="center">
+                            <td>1</td>
+                            <td style="display: none" name="id">9578572</td>
+                            <td>KBH816S</td>
+                            <td style="display: none" name="step">W</td>
+                            <td name="make">NISSAN CARAVAN</td>
+                            <td name="chassisNo">KRGE24-035558</td>
+                            <td name="engineNo">TD27-574875</td>
+                            <td name="bodyColour">W H I T E</td>
+                        </tr>
+
+                    </table>
+                    <form name="booking" id="booking">
+                        <input type="hidden" value="" name="bookingInfoDto.vehicleIds" id="vehicleIds">
+
+                        <h5 align="center" style="background: #6d6d6d; color: #fff;line-height: 36px;margin: 20px 0 0 0;">Inspection Info</h5>
+                        <table>
+                            <tr id="inspectionMode" style="display:none">
+                                <th style="width: 30%">Inspection mode:</th>
+                                <td>
+                                    <select style="width: 45%; height: 31px;" id="inspectionVehicleMode" onchange="changeMode()">
+                                        <option value="1" selected>Inspect vehicles at inspection center</option>
+                                        <option value="2">Inspect the vehicle at customer's site</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr id="preTexTr">
+                                <th>
+                                    <span style="color:red;"></span>Advance Tax:</th>
+                                <td>
+                                    <input type="text" id="preTex" value="" style="width:45%; height: 31px;" class="easyui-numberbox"
+                                        min="1" max="10000000">
+                                </td>
+                            </tr>
+
+                            <input type="hidden" value="Ro" name="bookingInfoDto.inspectionType" id="inspectionType">
+                            <tr>
+                                <th>Inspection Center:</th>
+                                <td>
+                                    <select style="width:45%; height: 31px;" onchange="showTime(this)" name="bookingInfoDto.inspectionCentre"
+                                        id="inspectionCentre" class="easyui-validatebox" data-options="required:true">
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr id="datePiker">
+                                <th>Inspection Date:</th>
+                                <td>
+                                    <input type="text" style="width:45%;" name="bookingInfoDto.bookingDate" id="myinspectionDate"
+                                        class="easyui-validatebox" data-options="" readonly="readonly" />
+                                </td>
+                            </tr>
+                            <tr id="time1" style="display: none">
+                                <th>Time:</th>
+                                <td>
+                                    <input id="time" type="text" style="width:45%;" value="" name="bookingInfoDto.startTime"
+                                        class="easyui-validatebox" data-options="" readonly />
+                                    <span id="workingtime" style="width:70%;"></span>
+                                    <input type="hidden" name="bookingInfoDto.startTime" id="bookingStart" />
+                                    <input type="hidden" name="bookingInfoDto.endTime" id="bookingEnd" />
+                                </td>
+                            </tr>
+                            <tr id="time2" style="display: none">
+                                <td colspan="2">
+                                    <table>
+                                        <tr>
+                                            <td style="border: 0" id="time3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 0">
+                                                <input type="text" style="display:none" id="starttime" />
+                                                <input type="text" style="display:none" id="endtime" />
+                                                <input type="text" style="display:none" id="eachSection" />
+                                                <input type="text" style="display:none" id="barNum" />
+                                                <span style="display:none" id="restVehicleBookingInfos"></span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <!--  -->
+                        <input type="hidden" name="bookingInfoDto.id" id="bookingInfoid" value="9454356" />
+                        <div style="text-align: center; padding: 10px;">
+                            <input type="button" class="btn btn-green" value="Submit" onclick="submitform()" />
+                            <input type="button" class="btn btn-gray" value="Go Back" onclick="javascript:history.go(-1)" />
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <script>
+                $(function () {
+                    $("#myinspectionDate")
+                        .datepicker({
+                            beforeShowDay: nonWorkingDates,
+                            showButtonPanel: false,
+                            changeYear: false,
+                            numberOfMonths: 2,
+                            changeMonth: false,
+                            dateFormat: 'dd/mm/yy',
+                            maxDate: " +2m",
+                            minDate: "d",
+                            dayNamesMin: ['Su', 'Mo', 'Tu', 'We', 'Th',
+                                'Fr', 'Sa'
+                            ],
+                            monthNames: ["Jan", "Feb", "Mar", "Apr",
+                                "Maj", "Jun", "Jul", "Aug", "Sep",
+                                "Oct", "Nov", "Dec"
+                            ],
+                            monthNamesShort: ["Jan", "Feb", "Mar", "Apr",
+                                "Maj", "Jun", "Jul", "Aug", "Sep",
+                                "Oct", "Nov", "Dec"
+                            ],
+                            onSelect: function (date) {
+                                showTime();
+                            }
+                        });
+                    var vacationList = null;
+                    $.ajax({
+                        type: 'post',
+                        dataType: "json",
+                        url: "/portal/user/mvi/getVacationList.htm",
+                        success: function (data) {
+                            vacationList = data;
+                        }
+                    });
+
+                    function nonWorkingDates(date) {
+                        var day = date.getDay();
+                        if (day == 0 || day == 6) {
+                            return [false, 'CLOSED', 'weekend'];
+                        }
+                        var dateStr = formatDate(date);
+                        for (var i = 0; i < vacationList.length; i++) {
+                            if (dateStr == vacationList[i].date) {
+                                return [false, 'CLOSED', vacationList[i].vacationName];
+                            }
+                        }
+                        return [true, ''];
+                    }
+
+                    function formatDate(date) {
+                        var year = date.getFullYear();
+                        var month = date.getMonth() + 1;
+                        if (month < 10) {
+                            month = "0" + month;
+                        } else {
+                            month = "" + month;
+                        }
+                        var day = date.getDate();
+                        if (day < 10) {
+                            day = "0" + day;
+                        } else {
+                            day = "" + day;
+                        }
+                        return year + month + day;
+                    }
+                    $.ajax({
+                        type: 'post',
+                        dataType: "json",
+                        url: "/portal/user/mvi/getInspectionCentre.htm",
+                        success: function (data) {
+                            for (var i = 0; i < data.length; i++) {
+                                $('#inspectionCentre').append(
+                                    $("<option ></option>").attr({
+                                        "value": data[i].id,
+                                        "maxBookingNum": data[i].maxBookingNumber,
+                                        "eachSection": data[i].eachSection,
+                                        "startTime": data[i].startTime,
+                                        "endTime": data[i].endTime
+                                    }).text(data[i].name));
+                            }
+                            //$("#workingtime").text(" working time: "+data[0].startTime+"-"+data[0].endTime);
+                        }
+                    });
+                    var vehicleList = '[com.keli.tims.mvi.domain.model.InspectionVehicle@a1389a7d]'.split(",");
+                    if (vehicleList.length >= 30) {
+                        $("#inspectionMode").show();
+                    }
+                });
+
+                function getCurrentDate() {
+                    var myDate = new Date();
+                    var year = myDate.getFullYear();
+                    var month = myDate.getMonth() + 1;
+                    var day = myDate.getDate();
+                    if (month < 10) {
+                        month = "0" + month;
+                    }
+                    if (day < 10) {
+                        day = "0" + day;
+                    }
+                    return day + "/" + month + "/" + year;
+                }
+
+                function showTime(data) {
+                    //$("#workingtime").text(" working time: "+data[0].startTime+"-"+data[0].endTime);
+                    if ($("#inspectionVehicleMode option:selected").val() == "2") {
+                        return;
+                    }
+                    if ($("#inspectionType").val() == 'N') {
+                        if ($('#myinspectionDate').val() == getCurrentDate()) {
+                            alert("Kindly take your vehicle for inspection as from tomorrow.");
+                            $('#myinspectionDate').val("");
+                        }
+                        return;
+                    }
+                    $("#workingtime").text(
+                        " working time: " +
+                        sec2time($("#inspectionCentre option:selected")
+                            .attr("starttime")) +
+                        "--" +
+                        sec2time($("#inspectionCentre option:selected")
+                            .attr("endtime")));
+                    if ($('#inspectionCentre').val() == "" ||
+                        $("#myinspectionDate").val() == "") {
+                        return;
+                    }
+
+                    $($("#time3").children()).remove();
+
+                    $
+                        .ajax({
+                            type: 'post',
+                            dataType: "json",
+                            data: {
+                                "bookingInfoDto.inspectionCentreid": $(
+                                    '#inspectionCentre').val(),
+                                "bookingInfoDto.bookingDate": $(
+                                    '#myinspectionDate').val(),
+                                "bookingInfoDto.id": $("#bookingInfoid").val()
+                            },
+                            url: "/portal/user/mvi/modify/countTimeModify.htm",
+                            success: function (data) {
+                                /* $("#starttime").val(data.startTime);
+                                $("#endtime").val(data.endTime);
+                                $("#eachSection").val(data.eachSect);
+                                $("#barNum").val(data.number); */
+                                $("#time3").append(
+                                    $("<div class='myborder' ></div>"));
+                                for (var i = 0; i < Number($(
+                                        "#inspectionCentre option:selected").attr(
+                                        "maxBookingNum")); i++) {
+                                    $("#time3").append(
+                                        $("<div class='able0' ></div>").attr({
+                                            "value": i,
+                                            "id": "miniBar" + i,
+                                            "name": "unchoose",
+                                            "onclick": "onconfirm(this)"
+                                        }));
+                                }
+                                for (var i = 0; i < data.timePeriod.length; i++) {
+                                    $("#miniBar" + data.timePeriod[i]).attr({
+                                        "class": "disable0",
+                                        name: "choosed",
+                                        "onclick": ""
+                                    });
+                                }
+
+                            }
+                        })
+
+                    document.getElementById("time1").style.display = "";
+                    $("#time").val("");
+                    document.getElementById("time2").style.display = "";
+
+                    //}
+                }
+                var restbookingtimes = [];
+
+                function onconfirm(data) {
+                    //////////Ã¥ÂÂÃ¥Â§ÂÃ¥ÂÂ///////
+                    restbookingtimes = [];
+                    var restbookingtime0 = {};
+                    restbookingtime0.bookingDate = $("#myinspectionDate").val();
+                    timePeriods0 = [];
+                    $("#restVehicleBookingInfos").html("");
+                    $("[name='unchoose']").attr("class", "able0");
+
+                    var vehicleNum = $("#bookingVehicleList tr").length - 1;
+                    var barNum = Number($("#inspectionCentre option:selected").attr(
+                        "maxBookingNum"));
+                    var eachSection = Number($("#inspectionCentre option:selected")
+                        .attr("eachSection"));
+                    var maxBookingNum = Number($("#inspectionCentre option:selected")
+                        .attr("maxBookingNum"));
+                    var j = data.value; //Ã¦ÂÂ¶Ã©ÂÂ´Ã§ÂÂ¹Ã§Â¬Â¬Ã¥ÂÂ Ã¦Â®Âµ
+                    var i = 0; //Ã©Â¢ÂÃ§ÂºÂ¦Ã¨Â½Â¦Ã¨Â¾ÂÃ¦ÂÂ°Ã§ÂÂÃ¨Â¿Â­Ã¤Â»Â£
+                    var time1 = Number($("#inspectionCentre option:selected").attr(
+                            "starttime")) +
+                        j * eachSection; //Ã¥Â¼ÂÃ¥Â§ÂÃ¦ÂÂ¶Ã©ÂÂ´
+                    while (i < vehicleNum) {
+
+                        if (j == barNum) {
+                            if (confirm("The rest of the vehicle, do you want to do it in the other days? ")) {
+                                $
+                                    .ajax({
+                                        type: 'post',
+                                        dataType: "json",
+                                        data: {
+                                            "vehicleNum": vehicleNum - i,
+                                            "maxBookingNum": maxBookingNum,
+                                            "inspectionCentreid": $(
+                                                '#inspectionCentre').val(),
+                                            "bookingDate": $('#myinspectionDate')
+                                                .val()
+                                        },
+                                        url: "/portal/user/mvi/setDefaultTime.htm",
+                                        success: function (data) {
+                                            $("#restVehicleBookingInfos").attr(
+                                                "restBookingInfo", data);
+                                            var strtip = "the rest vehicles will inspection at ";
+
+                                            $(data)
+                                                .each(
+                                                    function () {
+                                                        var restbookingtime = {};
+                                                        restbookingtime.bookingDate = this.bookingDate;
+                                                        restbookingtime.bookingPeriod = this.timePeriod;
+                                                        restbookingtimes
+                                                            .push(restbookingtime);
+                                                        var time1 = Number($(
+                                                                    "#inspectionCentre option:selected")
+                                                                .attr(
+                                                                    "starttime")) +
+                                                            this.timePeriod[0] *
+                                                            eachSection;
+                                                        var time2 = Number($(
+                                                                    "#inspectionCentre option:selected")
+                                                                .attr(
+                                                                    "starttime")) +
+                                                            this.timePeriod[this.timePeriod.length - 1] *
+                                                            eachSection;
+                                                        strtip = strtip +
+                                                            this.bookingDate +
+                                                            "  " +
+                                                            sec2time(time1) +
+                                                            "--" +
+                                                            sec2time(time2) +
+                                                            "  ";
+                                                    })
+                                            $("#restVehicleBookingInfos").html(
+                                                strtip).css("display", ""); //Ã¥ÂÂ©Ã¤Â½ÂÃ¨Â½Â¦Ã¨Â¾ÂÃ§ÂÂÃ¨Â½Â¦Ã¦Â£ÂÃ¦ÂÂ¶Ã©ÂÂ´
+                                        },
+                                        error: function () {
+                                            alert("Some error occur ,please try again!");
+                                            $("#time").attr("value", "");
+                                            return;
+                                        }
+                                    })
+                            } else {
+                                $("[name='unchoose']").attr("class", "able0");
+                                $("#time").attr("value", "");
+                                alert("Please choose again!");
+                                return;
+                            }
+                            break;
+                        } else {
+
+                            if ($("#miniBar" + j).attr("name") == "unchoose") {
+                                $("#miniBar" + j).attr("class", "disable0");
+                                timePeriods0.push(j);
+                                i++
+                            }
+                        }
+                        j++;
+
+                    }
+                    restbookingtime0.bookingPeriod = timePeriods0;
+                    restbookingtimes.push(restbookingtime0);
+                    var time2 = Number($("#inspectionCentre option:selected").attr(
+                            "starttime")) +
+                        j * eachSection;
+                    $("#time").val(sec2time(time1) + "--" + sec2time(time2));
+                    $("#bookingStart").val(sec2time(time1));
+                    $("#bookingEnd").val(sec2time(time2));
+                }
+
+                function sec2time(sec) {
+                    if (sec < 0) {
+                        return;
+                    } else {
+                        var secend = sec % 60;
+                        var min = parseInt(sec / 60) % 60;
+                        var hour = parseInt(sec / 3600);
+                        if (hour < 10) {
+                            hour = "0" + hour;
+                        }
+                        if (min < 10) {
+                            min = "0" + min;
+                        }
+                        if (secend < 10) {
+                            secend = "0" + secend;
+                        }
+                        return hour + ":" + min + ":" + secend;
+                    }
+                }
+
+                function submitform() {
+                    if ($("#inspectionVehicleMode option:selected").val() == "1") {
+                        if ($("#myinspectionDate").val() == "") {
+                            alert("Please fill in the blank");
+                            return;
+                        }
+                        if ($("#inspectionType").val() != "N" && $("#time").val() == "") {
+                            alert("Please fill in the blank");
+                            return;
+                        }
+                    }
+                    //if($("#booking").form('validate')){
+                    if (confirm(
+                            "Kindly ensure that the information given is correct. The applicant will be responsible for any issues and/or risks arising from submission of wrong information!"
+                        )) {
+                        var bookingdatetime = convert2string(restbookingtimes);
+                        var arr = $("[name='chassisNo']")
+                        var vehicleChassNos = "";
+                        for (var i = 0; i < arr.length; i++) {
+                            if (arr.length - 1 == i) {
+                                vehicleChassNos += $(arr[i]).text()
+                            } else {
+                                vehicleChassNos += $(arr[i]).text() + ","
+                            }
+
+                        }
+                        if ($("#inspectionType").val() == "C") {
+                            var data = {
+                                "bookingInfoDto.inspectionCentreid": $(
+                                    '#inspectionCentre').val(),
+                                "bookingInfoDto.inspectionCentre": $('#inspectionCentre').find("option:selected").text(),
+                                "bookingInfoDto.id": $('[name="bookingInfoDto.id"]')
+                                    .val(),
+                                "bookingInfoDto.bookingDateTime": bookingdatetime,
+                                "bookingInfoDto.startTime": $("#bookingStart").val(),
+                                "bookingInfoDto.endTime": $("#bookingEnd").val(),
+                                "bookingInfoDto.inspectionType": $("#inspectionType")
+                                    .val(),
+                                "bookingInfoDto.bookingDate": $('#myinspectionDate')
+                                    .val(),
+                                "bookingInfoDto.inspectionMode": $(
+                                    "#inspectionVehicleMode option:selected").val(),
+                                "bookingInfoDto.preTex": $('#preTex').val(),
+                                "memorandum.bodyType": $(
+                                    '[name="memorandum.bodyType"]').val(),
+                                "memorandum.bodyColor": $(
+                                    '[name="memorandum.bodyColor"]').val(),
+                                "memorandum.engineNumber": $(
+                                    '[name="memorandum.engineNumber"]').val(),
+                                "memorandum.fuelType": $(
+                                    '[name="memorandum.fuelType"]').val(),
+                                "memorandum.rating": $('[name="memorandum.rating"]')
+                                    .val(),
+                                "memorandum.vehicleUse": $(
+                                    '[name="memorandum.vehicleUse"]').val(),
+                                "inspectionVehicleid": $(
+                                    '[name="inspectionVehicleid"]').val(),
+                                "bookingInfoDto.vehicleIds": vehicleChassNos
+                            };
+                        } else {
+
+                            var data = {
+                                "bookingInfoDto.inspectionCentreid": $(
+                                    '#inspectionCentre').val(),
+                                "bookingInfoDto.inspectionCentre": $('#inspectionCentre').find("option:selected").text(),
+                                "bookingInfoDto.id": $('[name="bookingInfoDto.id"]')
+                                    .val(),
+                                "bookingInfoDto.bookingDateTime": bookingdatetime,
+                                "bookingInfoDto.startTime": $("#bookingStart").val(),
+                                "bookingInfoDto.endTime": $("#bookingEnd").val(),
+                                "bookingInfoDto.inspectionType": $("#inspectionType")
+                                    .val(),
+                                "bookingInfoDto.bookingDate": $('#myinspectionDate')
+                                    .val(),
+                                "bookingInfoDto.inspectionMode": $(
+                                    "#inspectionVehicleMode option:selected").val(),
+                                "bookingInfoDto.preTex": $('#preTex').val(),
+                                "bookingInfoDto.vehicleIds": vehicleChassNos
+                            };
+                        }
+
+                        $
+                            .ajax({
+                                type: 'post',
+                                dataType: "json",
+                                data: data,
+                                url: "/portal/user/mvi/modify/savingBooking.htm",
+                                success: function (data) {
+                                    if (data == "0") {
+                                        window.location = "/portal/user/mvi/bookinglist.htm";
+                                    } else {
+                                        if (data == "4") {
+                                            alert("Sorry,your booking time has conflict! Please choose again.");
+                                        } else {
+                                            alert("Sorry,some thing is wrong.");
+                                        }
+                                        $("#time").val("");
+                                        window.reload();
+                                    }
+                                },
+                                error: function (data) {
+                                    alert("Sorry,some thing is wrong.");
+                                }
+                            })
+                    } else {
+                        $("#time").val("");
+                    }
+                    //}
+
+                }
+
+                function convert2string(data) {
+                    var bookingdatetime = "";
+                    $(data).each(function () {
+                        var str = this.bookingDate + ":";
+                        $(this.bookingPeriod).each(function () {
+                            str = str + "," + this.toString();
+                        })
+                        bookingdatetime = bookingdatetime + ";" + str;
+                    })
+                    return bookingdatetime;
+                }
+
+                function onclass1() {
+                    $('#newcarBooking').css('display', '');
+                    $('#otherBooking').css('display', 'none');
+                    $('#RoadInspection').css('display', 'none');
+                    $('#class1').attr("class", "act");
+                    $('#class2').attr("class", "");
+
+                }
+
+                function onclass2() {
+                    $('#otherBooking').css('display', '');
+                    $('#newcarBooking').css('display', 'none');
+                    $('#RoadInspection').css('display', '');
+                    $('#class1').attr("class", "");
+                    $('#class2').attr("class", "act");
+                }
+
+                function inquire() {
+                    if ($('#chassisQueryNo').val() == "") {
+                        alert("please input chassis No.");
+                    } else {
+                        var listElem = $('<tr align="center"></tr>')
+                            .append($('<td >Civilian</td>'))
+                            .append($('<td >MinR</td>'))
+                            .append($('<td >slfjeo1234656</td>'))
+                            .append($('<td >ks123456</td>'))
+                            .append(
+                                $(
+                                    '<td ><a style="text-decoration: underline;cursor:pointer" onclick="delrecord(this)">delete</a></td>'
+                                ));
+                        $('#listtable').append(listElem);
+                    }
+                    showTime();
+                }
+
+                function delrecord(data) {
+                    $(data).parent().parent().remove();
+                    showTime();
+                }
+
+                function changeMode() {
+                    if ($("#inspectionVehicleMode option:selected").val() == "1") {
+                        $("#datePiker").show();
+                        $("#myinspectionDate").val("");
+                        $("#time").val("");
+
+                    } else {
+                        $("#datePiker").hide();
+                        $("#time1").hide();
+                        $("#time2").hide();
+
+                    }
+                }
+            </script>
+
+        </div>
+
+    </div>
+
+    <!--页面公共底部开始，代码以index.html中的为准-->
+    <div class="footer">
+        <div class="w1000">
+
+            <div class="logos">
+                <img src="/res_csp/footerLogo.png" />
+            </div>
+
+            <div id="vNums" class="copyRight">
+                The system has been visited 155032536 times.
+            </div>
+            <div class="copyRight">
+                E-mail: info@ntsa.go.ke &nbsp;&nbsp; complaints@ntsa.go.ke
+                <br> Copyright © 2018 National Transport and Safety Authority. All Rights Reserved.
+                <br> v1.2.1.7496
+            </div>
+        </div>
+    </div>
+    <!-- --------------------------------页面模板公用底部开始-------------------------------- -->
+    <!--当前页面私有JS-->
+    <script>
+        require(['user'], function () {
+            //		alert('app');
+        })
+    </script>
+    <!-- --------------------------------页面模板公用底部开始-------------------------------- -->
+</body>
+
+</html>
